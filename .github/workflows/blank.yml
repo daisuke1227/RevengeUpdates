@@ -1,4 +1,4 @@
-name: Revnge Updates
+name: Revenge Updates
 on:
   workflow_dispatch:
     inputs:
@@ -40,13 +40,13 @@ jobs:
       run: cyan -i com.hammerandchisel.discord-${{ github.event.inputs.discord_version }}.ipa -z RevengeWithOpenInSafariAndNotifer.cyan -o RevengeWithOpenInSafariAndNotifer-${{ github.event.inputs.discord_version }}-Daisuke.ipa
 
     - name: Upload IPA with OpenInSafari
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: RevengeWithOpenInSafari-${{ github.event.inputs.discord_version }}-Daisuke.ipa
         path: ./RevengeWithOpenInSafari-${{ github.event.inputs.discord_version }}-Daisuke.ipa
 
     - name: Upload IPA with OpenInSafariAndNotifier
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: RevengeWithOpenInSafariAndNotifer-${{ github.event.inputs.discord_version }}-Daisuke.ipa
         path: ./RevengeWithOpenInSafariAndNotifer-${{ github.event.inputs.discord_version }}-Daisuke.ipa
