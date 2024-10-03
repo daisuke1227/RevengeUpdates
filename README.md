@@ -1,1 +1,1 @@
-So this is kinda like (https://github.com/daisuke1227/BunnyUpdates)[BunnyUpdtes] but using revnge decryption will be using @eeveedecrypterbot or Eeeve IPA Decryptor this will have the same files juse using revenge
+So this is kinda like [BunnyUpdtes](https://github.com/daisuke1227/BunnyUpdates) but using revnge decryption will be using @eeveedecrypterbot or Eeeve IPA Decryptor this will have the same files juse using revenge
