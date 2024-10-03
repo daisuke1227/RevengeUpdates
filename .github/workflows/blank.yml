@@ -25,8 +25,10 @@ jobs:
         sudo apt install -y pipx
         pipx ensurepath
 
-    - name: Install cyan
-      run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+    - name: Install cyan and inject Pillow
+      run: |
+        pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+        pipx inject cyan Pillow
 
     - name: Download Discord IPA
       run: |
@@ -55,7 +57,7 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       with:
         tag_name: v${{ github.event.inputs.discord_version }}
         release_name: Release v${{ github.event.inputs.discord_version }}
@@ -65,7 +67,7 @@ jobs:
     - name: Upload IPA to GitHub Release (OpenInSafari)
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./RevengeWithOpenInSafari-${{ github.event.inputs.discord_version }}-Daisuke.ipa
@@ -75,7 +77,7 @@ jobs:
     - name: Upload IPA to GitHub Release (OpenInSafariAndNotifier)
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./RevengeWithOpenInSafariAndNotifer-${{ github.event.inputs.discord_version }}-Daisuke.ipa
